@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="index.css">
+    <title>Skip to Internet</title>
+</head>
+<body>
+
+    <form id="authForm" action="eap_auth.php" method="POST">
+        <input type="hidden" id="clientMac" name="clientMac">
+        <input type="hidden" id="apMac" name="apMac">
+        <input type="hidden" id="ssidName" name="ssidName">
+        <input type="hidden" id="radioId" name="radioId">
+        <input type="hidden" id="site" name="site">
+        <input type="hidden" id="redirectUrl" name="redirectUrl">
+        <button type="submit">Skip</button>
+    </form>
+
+    <script type="text/javascript">
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        document.getElementById('clientMac').value = getQueryParam('clientMac');
+        document.getElementById('apMac').value = getQueryParam('apMac');
+        document.getElementById('ssidName').value = getQueryParam('ssidName');
+        document.getElementById('radioId').value = getQueryParam('radioId');
+        document.getElementById('site').value = getQueryParam('site');
+        document.getElementById('redirectUrl').value = getQueryParam('redirectUrl');
+    </script>
+
+</body>
+</html>
